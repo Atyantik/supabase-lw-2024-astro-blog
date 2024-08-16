@@ -7,9 +7,9 @@ import { Route } from 'react-router-dom';
 import { LoginPage, SetPasswordPage, ForgotPasswordPage } from "ra-supabase";
 import { authProvider } from "../../utils/authProvider";
 import { dataProvider } from "../../utils/dataProvider";
-import { PostCreate } from "./Posts/PostCreate";
-import { PostEdit } from "./Posts/PostEdit";
-import { PostList } from "./Posts/PostList";
+import { PostCreate } from "./Post/PostCreate";
+import { PostEdit } from "./Post/PostEdit";
+import { PostList } from "./Post/PostList";
 
 const AdminApp = () => (
   <Admin
