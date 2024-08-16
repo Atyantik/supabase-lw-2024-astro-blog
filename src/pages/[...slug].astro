@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { PostItem } from "../components/PostItem";
+import { supabaseClient } from "../utils/supabase";
+
+const { slug } = Astro.params;
+const uniqueId = slug?.split("-")?.pop();
+if (!slug || !uniqueId) {
+  return Astro.redirect("/404");
+}
+
+const { data } = await supabaseClient
+  .from("posts")
+  .select("title, slug, unique_id, publish_date, content, featured_images, excerpt")
+  .eq("unique_id", uniqueId)
+  .single();
+
+if (!data?.title) {
+  return Astro.redirect("/404");
+}
+---
+
+<BaseLayout>
+  <PostItem {...data} />
+</BaseLayout>

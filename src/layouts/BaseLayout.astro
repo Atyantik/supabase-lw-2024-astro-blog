@@ -1,0 +1,21 @@
+---
+const { title } = Astro.props;
+---
+<html lang="en" class="min-h-screen">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title ?? 'Quick blog with Supabase'}</title>
+  </head>
+  <body class="min-h-screen">
+    <h1>{title}</h1>
+    <article>
+      <slot /> <!-- your content is injected here -->
+    </article>
+    <footer class="sticky top-[100vh] text-center">
+      <p class="text-grey">
+        Made with ❤️ by <a href="https://www.atyantik.com">Atyantik Technologies</a>
+      </p>
+    </footer>
+  </body>
+</html>
